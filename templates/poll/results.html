@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'poll/bootstrap.css' %}">
+    <title>투표 결과</title>
+</head>
+<body>
+  <div class="jumbotron">
+        <div class="text-center">
+            <h1>투표 결과</h1>
+        </div>
+  </div>
+  <div class="container">
+    <h3>{{ question.question_text }}</h3>
+    <ul>
+      {% for choice in question.choice_set.all %}
+      <li class="my-3">
+        {{ choice.choice_text }} - {{ choice.votes }}votes
+      </li>
+      {% endfor %}
+    </ul>
+    <a href="{% url 'poll:detail' question.id %}" >다시 투표하시겠습니까?</a>
+  </div>
+</body>
+</html>

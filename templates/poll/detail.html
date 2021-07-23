@@ -1,7 +1,35 @@
-<h3>{{ question.question_text }}</h3>
-
-<ul>
-  {% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }}</li>
-  {% endfor %}
-</ul>
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'poll/bootstrap.css' %}">
+    <title>투표 하기</title>
+</head>
+<body>
+  <div class="jumbotron">
+        <div class="text-center">
+            <h1>투표 하기</h1>
+        </div>
+  </div>
+  <div class="container">
+      <form action="{% url 'poll:vote' question.id %}" method="post">
+        {% csrf_token %}
+        <h3>{{ question.question_text }}</h3>
+        <!-- 선택을 하지 않고 투표 버튼을 누른 경우 에러 처리-->
+        {% if error_message %}
+          <p><strong>{{ error_message }}</strong></p>
+        {% endif %}
+        {% for choice in question.choice_set.all %}
+        <input type="radio" name="choice" id="choice{{ forloop.counter }}"
+               value="{{ choice.id }}">
+        <label for="choice{{ forloop.counter }}" style="line-height: 2rem">
+          {{ choice.choice_text }}
+        </label>
+        <br>
+        {% endfor %}
+        <p><input type="submit" value="투표"></p>
+      </form>
+    </div>
+</body>
+</html>

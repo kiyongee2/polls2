@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <script src="{% static 'poll/jquery-3.6.0.js' %}"></script>
+    <title>val()함수 예제</title>
+</head>
+<body>
+    <input type="text" id="t_input">
+    <button>입력</button>
+    <p>결과 <input type="text" id="t_output" disabled></p>
+
+    <script>
+        $(document).ready(function(){
+            $("button").on('click', function(){
+                var text = $("#t_input").val();
+                $("#t_output").val(text)
+            });
+        });
+    </script>
+</body>
+</html>

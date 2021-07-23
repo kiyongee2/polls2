@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>학교 사이트 메뉴</title>
+    <style>
+        .wrap a{text-decoration: none; color: #222}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <p class="btn1">
+            <a href="#">학교안내</a>
+        </p>
+        <ul class="ul1" style="display: none">
+            <li>학교장인사말</li>
+            <li>학교연혁</li>
+            <li>찾아오시는길</li>
+        </ul>
+        <p class="btn2">
+            <a href="#">학교생활</a>
+        </p>
+        <ul class="ul2" style="display: none">
+            <li>공지사항</li>
+            <li>가정통신문</li>
+            <li>동아리활동</li>
+        </ul>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            //마우스를 올려놓았을때 이벤트
+            $(".btn1 a").on('mouseover', function(){
+                var y = $(this);
+                y.parent().next().show();  //parent():P태그 next():형제(ul)
+                y.css("background", "lightgreen");
+            });
+            $(".btn1 a").on('mouseout', function(){
+                var y = $(this);
+                y.parent().next().hide();
+                y.css("background", "white");
+            });
+
+            // 마우스 클릭시 이벤트
+            $(".btn2 a").on('click', function(){
+                $(".ul2").css({'display': 'block'});
+            });
+        });
+    </script>
+</body>
+</html>

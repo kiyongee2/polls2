@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>parent() 예제</title>
+    <style>
+        .wrap *{
+            display: block;
+            border: 2px solid gray;
+            color: gray;
+            padding: 10px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul>ul (grandparent)
+            <li>li(direct parent)
+                <span>span</span>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("span").parent().css({
+                "color": "blue", "border": "2px solid red"});
+        });
+    </script>
+</body>
+</html>
