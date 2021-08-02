@@ -7,5 +7,8 @@ urlpatterns = [
     # 127.0.0.1:8000/poll
     path('poll/', include('poll.urls')),
     # 127.0.0.1:8000/
-    path("", views.index)
+    path("", views.index),
+
+    # 127.0.0.1:8000/calc
+    path("calc/", include('calc.urls'))
 ]

@@ -19,6 +19,7 @@ def vote(request,question_id):
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except KeyError:
+
         return render(request, 'poll/detail.html', {
             'question': question,
             'error_message': '선택을 해주세요!'

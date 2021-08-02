@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>입력 화면</title>
+</head>
+<body>
+  <form action="{% url 'calc:output' %}" method="post">
+      {% csrf_token %}
+    <p>
+      <label for="name">이름 : </label>
+      <input type="text" name="name" id="name">
+    </p>
+      <p>
+      <label for="age">나이 : </label>
+      <input type="text" name="age" id="age">
+    </p>
+    <input type="submit" value="전송">
+  </form>
+</body>
+</html>

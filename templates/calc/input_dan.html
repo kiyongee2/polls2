@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>숫자 입력 화면</title>
+</head>
+<body>
+  <form action="{% url 'calc:gugudan' %}" method="post">
+    {% csrf_token %}
+    <p>
+      <label>단 입력: </label>
+      <input type="text", name="dan">
+    </p>
+    <button type="submit">확인</button>
+  </form>
+</body>
+</html>
